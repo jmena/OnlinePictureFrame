@@ -1,6 +1,7 @@
 package com.creativemd.opf.client;
 
-import net.minecraft.client.renderer.GlStateManager;
+
+import com.mojang.blaze3d.platform.GlStateManager;
 
 public abstract class PictureTexture {
 	
@@ -26,7 +27,7 @@ public abstract class PictureTexture {
 	}
 	
 	public void release() {
-		GlStateManager.deleteTexture(getTextureID());
+		GlStateManager._deleteTexture(getTextureID());
 	}
 	
 }

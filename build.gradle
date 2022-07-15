@@ -67,6 +67,9 @@ minecraft {
                 examplemod {
                     source sourceSets.main
                 }
+//                creativecore {
+//                    source project('team.creative:CreativeCore').sourceSets.main
+//                }
             }
         }
 
@@ -142,9 +145,16 @@ repositories {
     // ForgeGradle automatically adds the Forge maven and Maven Central for you
 
     // If you have mod jar dependencies in ./libs, you can declare them as a repository like so:
-    // flatDir {
-    //     dir 'libs'
-    // }
+//    flatDir {
+//        dir 'C:\\Users\\javim\\Downloads\\minecraft\\OnlinePictureFrame-forge-1.18.2-40.1.54-mdk\\libs'
+//    }
+    maven {
+        url "https://cursemaven.com"
+        content {
+            includeGroup "curse.maven"
+        }
+    }
+
 }
 
 dependencies {
@@ -160,11 +170,18 @@ dependencies {
 
     // Examples using mod jars from ./libs
     // implementation fg.deobf("blank:coolmod-${mc_version}:${coolmod_version}")
+//    implementation fg.deobf("CreativeCore_FORGE_v2.6.12_mc1.18.2.jar")
+//    curse.maven:<descriptor>-<projectid>:<fileids>
+
+    // CreativeCore_FORGE_v2.6.12_mc1.18.2.jar
+    // https://www.curseforge.com/minecraft/mc-mods/creativecore/files/3834521
+    implementation fg.deobf("curse.maven:creativecore-257814:3834521")
 
     // For more info...
     // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
     // http://www.gradle.org/docs/current/userguide/dependency_management.html
 }
+
 
 // Example for how to get properties into the manifest for reading at runtime.
 jar {
